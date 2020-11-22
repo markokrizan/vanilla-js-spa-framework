@@ -1,0 +1,13 @@
+{
+  "name": "vanilla-js-mvc",
+  "version": "1.0.0",
+  "description": "Vanilla js mvc framework",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start" : "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
