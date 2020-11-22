@@ -28,3 +28,5 @@ class Router {
         this.app.showComponent(route.name);
     }
 }
+
+export default Router;

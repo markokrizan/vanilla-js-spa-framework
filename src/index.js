@@ -1,3 +1,7 @@
+import App from './app.js';
+import Router from './router.js';
+import MockAPI from './mockApi.js';
+
 const app = new App('#app');
 
 const mockApi = new MockAPI();
