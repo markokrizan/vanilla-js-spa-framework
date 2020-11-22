@@ -1,8 +1,8 @@
-import App from './app.js';
-import Router from './router.js';
-import MockAPI from './mockApi.js';
+import App from '../core/app.js';
+import Router from '../core/router.js';
+import MockAPI from '../core/mockApi.js';
 
-const app = new App('#app');
+const dogApp = new App('#app');
 
 const mockApi = new MockAPI();
 
@@ -30,7 +30,7 @@ const dogs = [
     }
 ];
 
-app.addComponent({
+dogApp.addComponent({
     name: 'dogs',
     model: {
         dogs: []
@@ -66,7 +66,7 @@ app.addComponent({
     }
 });
 
-app.addComponent({
+dogApp.addComponent({
     name: 'dog',
     model: {
       dog: {}
@@ -76,14 +76,14 @@ app.addComponent({
     },
     controller(model) {
         mockApi
-            .getMockData(dogs.find(dog => dog.id == router.params[1]), 100)
+            .getMockData(dogs.find(dog => dog.id == dogAppRouter.params[1]), 100)
             .then(res => {
                 model.dog = res;
             });
     }
   });
 
-const router = new Router(app);
+const dogAppRouter = new Router(dogApp);
 
-router.addRoute('dogs', '^#/dogs$');
-router.addRoute('dog', '^#/dogs/([0-9]*)$');
+dogAppRouter.addRoute('dogs', '^#/dogs$');
+dogAppRouter.addRoute('dog', '^#/dogs/([0-9]*)$');
